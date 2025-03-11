@@ -1,18 +1,16 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
-OBJ = main.o doubleLinkedList.o
-TARGET = program
+CFLAGS = -Wall -Wpedantic
 
-all: $(TARGET)
+all: list_test
 
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+list_test: list_test.o doubleLinkedList.o
+	$(CC) $(CFLAGS) -o list_test list_test.o doubleLinkedList.o
 
-main.o: main.c doubleLinkedList.h
-	$(CC) $(CFLAGS) -c main.c
+list_test.o: list_test.c doubleLinkedList.h
+	$(CC) $(CFLAGS) -c -g list_test.c
 
 doubleLinkedList.o: doubleLinkedList.c doubleLinkedList.h
-	$(CC) $(CFLAGS) -c doubleLinkedList.c
+	$(CC) $(CFLAGS) -c -g doubleLinkedList.c
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f *.o list_test

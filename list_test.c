@@ -1,4 +1,4 @@
-#include "doubleLinkedList.c"
+#include "doubleLinkedList.h"
 
 
 int main() {
