@@ -5,6 +5,7 @@
 *.vs
 *.sln
 *.vcxproj*
+*.vscode
 
 
 # Object files

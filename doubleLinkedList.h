@@ -12,6 +12,9 @@ void insertHead(List* list, int data);
 void insertAt(List* list, int index, int data);
 void deleteHead(List* list);
 void deleteTail(List* list);
+void deleteAt(List* list, int index);
 int isEmpty(List* list);
-
+int getSize(List* list);
+void printList(List* list);
+void printListReverse(List* list);
 #endif
