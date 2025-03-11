@@ -1,6 +1,11 @@
 # Prerequisites
 *.d
 
+#visual files
+*.vs
+*.sln
+*.vcxproj
+
 # Object files
 *.o
 *.ko
