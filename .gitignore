@@ -4,7 +4,8 @@
 #visual files
 *.vs
 *.sln
-*.vcxproj
+*.vcxproj*
+
 
 # Object files
 *.o
