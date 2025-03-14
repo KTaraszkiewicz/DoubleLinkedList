@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+double garbage[100000000][1000]={0};
+double garbage1[10000000][1000]={0};
+double garbage2[10000000][1000]={0};
+double garbage3[10000000][1000]={0};
+double garbage4[10000000][1000]={0};
+
+
 struct Node {
 	int data;
 	struct Node* next;
