@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wpedantic
 
-all: list_test lib_test.out lib_test_bibDyn.out
+all: list_test lib_test.out lib_test_bibDyn.out fork_test
 
 lib_test_bibDyn.out: doubleLinkedList.c doubleLinkedList.h list_test.c
 	$(CC) -c $(CFLAGS) -fPIC -D_GNU_SOURCE doubleLinkedList.c -o doubleLinkedListDyn.o
@@ -15,6 +15,12 @@ lib_test.out: lib_list_static.a list_test.o
 lib_list_static.a: doubleLinkedList.o
 	ar r lib_list_static.a doubleLinkedList.o
 
+fork_test: fork_test.o doubleLinkedList.o
+	$(CC) $(CFLAGS) -o fork_test fork_test.o doubleLinkedList.o
+
+fork_test.o: fork_test.c doubleLinkedList.h
+	$(CC) $(CFLAGS) -c fork_test.c
+
 list_test: list_test.o doubleLinkedList.o
 	$(CC) $(CFLAGS) -o list_test list_test.o doubleLinkedList.o
 
@@ -25,7 +31,7 @@ doubleLinkedList.o: doubleLinkedList.c doubleLinkedList.h
 	$(CC) $(CFLAGS) -c -g doubleLinkedList.c
 
 clean:
-	rm -f *.o list_test
+	rm -f *.o list_test fork_test
 	rm -f *.a
 	rm -f *.out
 	rm -f *.so
